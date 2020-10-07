@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const MongoClient = require('mongodb').MongoClient;
 const ObjectId = require('mongodb').ObjectID;
-const multer = require('multer');
+require('dotenv').config();
 
 const uri = "mongodb+srv://volunteer-network:volunteer123@cluster0.pweys.mongodb.net/volunteerdb?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true ,useUnifiedTopology: true});
@@ -70,4 +70,4 @@ app.get('/eventHomeList',(req, res)=>{
 });
 
 
-app.listen(port);
+app.listen(process.env.PORT || port);
